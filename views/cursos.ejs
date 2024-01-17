@@ -1,0 +1,15 @@
+<%- include('templates/header') %>
+<h1>en cursos</h1>
+
+<% cursos.forEach(element => { %>
+    <article>
+        <h2>
+          <%= element.titulo %>
+        </h2>
+        <p>
+            <%= element.descripcion %>
+        </p>
+    </article>
+<% }) %>
+
+<%- include('templates/footer') %>

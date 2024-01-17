@@ -1,0 +1,17 @@
+
+<%- include('templates/header') %>
+
+<p>instalaciones</p>
+
+<% instalaciones.forEach(element => { %>
+    <article>
+        <h2>
+           <%= element.titulo %> 
+        </h2>
+        <p>
+            <%= element.descripcion %>
+        </p>
+    </article>
+<% }) %>
+
+<%- include('templates/footer') %>
