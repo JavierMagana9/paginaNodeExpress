@@ -1,25 +1,27 @@
-
+const Cursos = require('../models/cursoModel')
 
 const getIndex = (req, res) => {
     res.render('index')
 }
-
-const getCursos = (req, res) => {
-    res.render('cursos', {
-        cursos: [{
-            titulo: 'curso CSS',
-            descripcion: 'Esta es la descripcion del curso CSS'
-        },
-        {
-            titulo: 'curso JS',
-            descripcion: 'Esta es la descripcion de JS'
-        },
-        {
-            titulo: 'curso HTML',
-            descripcion: 'Esta es la descripcion de HTML'
-        }]
-    })
+//esta es mostrarCursos
+console.log(Cursos)
+const mostrarCursos = async(req, res) => {
+    try {
+        const cursos = await Cursos.find()
+        res.render('cursos',{cursos})
+        console.log("en cursos",cursos)
+    } catch (error) {
+        console.log("error", error)
+    }
 }
+
+//mostrarUnCurso
+
+//crearUnCurso
+
+//editarUnCurso
+
+//eliminarUnCurso
 
 const getInstalaciones = (req, res) => {
     res.render('instalaciones', {
@@ -44,10 +46,22 @@ const getInstalaciones = (req, res) => {
         ]
     })
 }
+/*
 
+const escuela = async (req, res) => {
+
+    try {
+        const cursos = await Cursos.find()
+        res.render('cursos',{cursos})
+        console.log("en cursos",cursos)
+    } catch (error) {
+        console.log("error", error)
+    }
+
+}
+*/
 module.exports = {
     getIndex,
-    getCursos,
+    mostrarCursos,
     getInstalaciones
-
 }
