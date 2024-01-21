@@ -26,8 +26,16 @@ const mostrarCursos = async(req, res) => {
 
 const getInstalaciones =async (req, res) => {
    try {
-    const instalaciones = await Instalacion.find()
-    res.render('instalaciones',{instalaciones})
+    const resultado = await fetch('http://localhost:5000/api/v1/instalaciones')
+
+    if (resultado.ok){
+        const mostrarInstalacion =await resultado.json()
+        console.log(mostrarInstalacion)
+        const {instalaciones}=mostrarInstalacion
+        res.render('instalaciones',{instalaciones})
+
+    }
+
     
    } catch (error) {
     
