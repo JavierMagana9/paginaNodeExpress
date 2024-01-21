@@ -1,67 +1,93 @@
-const Cursos = require('../models/cursoModel')
+const Curso = require('../models/cursoModel')
+const Instalacion =require('../models/instalacionModel')
+
+
+// este es el index
 
 const getIndex = (req, res) => {
     res.render('index')
 }
+
 //esta es mostrarCursos
-console.log(Cursos)
+
 const mostrarCursos = async(req, res) => {
     try {
-        const cursos = await Cursos.find()
+        const cursos = await Curso.find()
         res.render('cursos',{cursos})
-        console.log("en cursos",cursos)
+        
     } catch (error) {
         console.log("error", error)
+        //gestionar las excepciones
     }
 }
 
-//mostrarUnCurso
 
-//crearUnCurso
+//mostrar Instalaciones
 
-//editarUnCurso
+const getInstalaciones =async (req, res) => {
+   try {
+    const instalaciones = await Instalacion.find()
+    res.render('instalaciones',{instalaciones})
+    
+   } catch (error) {
+    
+   }
+}
 
-//eliminarUnCurso
+// mostrar crear Instalacion
+const getCrear = (req, res) => {
+    res.render('crear')
+}
 
-const getInstalaciones = (req, res) => {
-    res.render('instalaciones', {
-        instalaciones: [
-            {
-                titulo: "Instalacion 1",
-                descripcion: " Descripcion Instalacion 1"
-                
-            },
-            {
-                titulo: "Instalacion 2",
-                descripcion: "Descripcion instalacion 2"
-            },
-            {
-                titulo: "Instalacion 3",
-                descripcion: "Descripcion instalacion 3"
-            },
-            {
-                titulo: "Instalacion 4",
-                descripcion: "Descripcion instalacion 4"
-            }
-        ]
+// crear Instalacion
+
+const postCrearInstalaciones = async(req,res)=>{
+    const {titulo,descripcion}= req.body
+    const instalaciones= new Instalacion({
+        titulo,
+        descripcion
     })
+try {
+   instalaciones.save(instalaciones)
+
+} catch (error) {
+    console.log("problema en creacion",error)
 }
-/*
+ res.redirect('/admin/crear')
 
-const escuela = async (req, res) => {
 
-    try {
-        const cursos = await Cursos.find()
-        res.render('cursos',{cursos})
-        console.log("en cursos",cursos)
-    } catch (error) {
-        console.log("error", error)
-    }
 
 }
-*/
+
+//mostrar para Actualizar instalaciones
+
+const getActualizar = (req, res) => {
+    res.render('actualizar')
+}
+
+
+//Actualizar instalaciones
+
+
+
+// Mostrar para eliminar Instalaciones
+const getEliminar = (req, res) => {
+    res.render('eliminar')
+}
+
+
+// Elimiar Instalaciones
+
+
+
+
+
 module.exports = {
     getIndex,
     mostrarCursos,
-    getInstalaciones
+    getInstalaciones,
+    getCrear,
+    postCrearInstalaciones,
+    getActualizar,
+    getEliminar
 }

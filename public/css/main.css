@@ -45,8 +45,7 @@ a:hover {
     color: rgb(178, 178, 73);
 }
 h1 {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 article{
     display: flex;
@@ -55,3 +54,20 @@ article{
     border: 1px solid black;
     padding: 20px;
 } 
+
+#formulario {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#formulario label, button {
+    margin: 10px;
+}
+
+#formulario textarea {
+
+    padding: 20px;
+}
+

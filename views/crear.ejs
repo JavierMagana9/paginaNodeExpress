@@ -1,0 +1,16 @@
+<%- include('templates/header') %>
+<h1>CREAR INSTALACIONES</h1>
+<form action="/admin/crear" method="post" id="formulario">
+
+    <label>Escriba la nueva instalacion</label>
+    <input type="text" name="titulo" id="titulo" >
+    <label>Escriba la descripcion de la nueva instalacion</label>
+    <textarea name="descripcion" id="descripcion" ></textarea>
+
+
+    <button type="submit">Enviar</button>
+
+</form>
+
+
+<%- include('templates/footer') %> 
