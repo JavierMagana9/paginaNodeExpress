@@ -45,7 +45,6 @@ a:hover {
     color: rgb(178, 178, 73);
 }
 h1 {
-    display: flex;
     justify-content: center;
 }
 article{

@@ -1,12 +1,10 @@
 const express = require('express')
 require('dotenv').config()
 
-const {connection} = require('./utils/connections')
-
 const port = process.env.PORT || 3000;
 const app = express()
 
-connection()
+
 app.use(express.static(__dirname + '/public'))
 
 app.set('view engine', 'ejs')

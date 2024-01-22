@@ -1,0 +1,11 @@
+<%- include('templates/header') %>
+<h1>CREAR CURSO</h1>
+<form action="/cursos" method="post">
+    
+    <input type="text" name="curso" id="curso">
+    <textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+    <button type="submit">Enviar</button>
+</form>
+
+
+<%- include('templates/footer') %>
