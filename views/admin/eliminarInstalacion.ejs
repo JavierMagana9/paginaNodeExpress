@@ -1,0 +1,18 @@
+<%- include('./templates/header') %>
+
+<h1>ELIMINAR INSTALACION</h1>
+<form action="/admin/actualizar/:id" method="post" id="formulario">
+    <label>Id de Instalacion a eliminar</label>
+<input type="text" name="id" id="id" >
+    <label>Titulo de Instalacion a eliminar</label>
+    <input type="text" name="titulo" id="titulo" >
+    <label>Descripcion de Instalacion a eliminar</label>
+    <textarea name="descripcion" id="descripcion" ></textarea>
+
+
+    <button type="submit">Enviar</button>
+
+</form>
+
+
+<%- include('./templates/footer') %> 

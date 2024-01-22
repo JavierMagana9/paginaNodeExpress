@@ -1,0 +1,40 @@
+
+<%- include('./templates/header') %>
+
+<h1>Panel de Instalaciones</h1>
+<section>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITULO</th>
+                <th>DESCRIPCION</th>
+                <th>ACTUALIZAR</th>
+                <th>ELIMINAR</th>
+            </tr>      
+        </thead>
+        <tbody>
+            <% instalaciones.forEach(element => { %>
+                <tr>
+                    <td>
+                        <%= element._id %>
+                    </td>
+                    <td>
+                       <%= element.titulo %> 
+                    </td>
+                    <td>
+                        <%= element.descripcion %>
+                    </td>
+                    <td>
+                        <a href="/admin/actualizar/<%= element._id %>">actualizar</a>
+                    </td>
+                    <td>
+                        <a href="/admin/eliminar/<%= element._id %>">eliminar</a>
+                    </td>
+                </tr>
+            <% }) %>  
+        </tbody>
+    </table>
+</section>
+
+<%- include('./templates/footer') %>

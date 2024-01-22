@@ -2,7 +2,10 @@ const express = require('express')
 
 const router = express.Router()
 
-const {getIndex, mostrarCursos, getInstalaciones, getCrear,postCrearInstalaciones,getActualizar,getEliminar}=require ('../controllers/firstlineControllers')
+const {getIndex, mostrarCursos, getCrear,postCrearInstalaciones}=require ('../controllers/firstlineControllers')
+
+const {getActualizar,getInstalaciones,getEliminar}=require('../controllers/belowControllers')
+
 
 
 //Index
@@ -21,7 +24,7 @@ router.get('/crear',getCrear)
 router.post('/crear',postCrearInstalaciones)
 
 //Mostrar Actualizar
-router.get('/actualizar',getActualizar)
+router.get('/actualizar/:id',getActualizar)
 
 
 //Actualizar Instalaciones
@@ -30,7 +33,7 @@ router.get('/actualizar',getActualizar)
 
 //Mostrar eliminar Instalaciones
 
-router.get('/eliminar',getEliminar)
+router.get('/eliminar/:id',getEliminar)
 
 
 //Eliminar Instalaciones

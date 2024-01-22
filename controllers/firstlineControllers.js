@@ -1,4 +1,4 @@
-const Curso = require('../models/cursoModel')
+const Curso =require('../models/cursoModel')
 const Instalacion = require('../models/instalacionModel')
 
 
@@ -68,29 +68,10 @@ console.log('no se pudieron crear las instalaciones',error)
     }
     res.redirect('/admin/crear')
 
-    /*  const {titulo,descripcion}= req.body
-    const instalaciones= new Instalacion({
-        titulo,
-        descripcion
-    })
-try {
-   instalaciones.save(instalaciones)
-
-} catch (error) {
-    console.log("problema en creacion",error)
-}
- res.redirect('/admin/crear')*/
-
-}
-
-//mostrar para Actualizar instalaciones
-
-const getActualizar = (req, res) => {
-    res.render('actualizar')
 }
 
 
-//Actualizar instalaciones
+
 
 
 
@@ -112,6 +93,5 @@ module.exports = {
     getInstalaciones,
     getCrear,
     postCrearInstalaciones,
-    getActualizar,
     getEliminar
 }

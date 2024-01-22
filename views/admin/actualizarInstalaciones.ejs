@@ -1,0 +1,17 @@
+<%- include('./templates/header') %>
+
+<h1>ACTUALIZAR INSTALACIONES</h1>
+<form action="/admin/actualizar/:id" method="post" id="formulario">
+<input type="hidden" name="id" id="id" >
+    <label>Escriba la actualizacion del titulo de la instalacion</label>
+    <input type="text" name="titulo" id="titulo" >
+    <label>Escriba la actualizacion de la descripcion de la instalacion</label>
+    <textarea name="descripcion" id="descripcion" ></textarea>
+
+
+    <button type="submit">Enviar</button>
+
+</form>
+
+
+<%- include('./templates/footer') %> 
