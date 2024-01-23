@@ -1,12 +1,12 @@
 <%- include('./templates/header') %>
 
 <h1>ACTUALIZAR INSTALACIONES</h1>
-<form action="/admin/actualizar/:id" method="post" id="formulario">
+<form action="/admin/actualizar/<%=_id%>" method="post" id="formulario">
 <input type="hidden" name="id" id="id" >
     <label>Escriba la actualizacion del titulo de la instalacion</label>
-    <input type="text" name="titulo" id="titulo" >
+    <input type="text" name="titulo" id="titulo" value="<%=titulo%>">
     <label>Escriba la actualizacion de la descripcion de la instalacion</label>
-    <textarea name="descripcion" id="descripcion" ></textarea>
+    <textarea name="descripcion" id="descripcion"><%=descripcion%></textarea>
 
 
     <button type="submit">Enviar</button>

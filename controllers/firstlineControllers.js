@@ -1,4 +1,4 @@
-const Curso =require('../models/cursoModel')
+const Curso = require('../models/cursoModel')
 const Instalacion = require('../models/instalacionModel')
 
 
@@ -28,14 +28,14 @@ const getInstalaciones = async (req, res) => {
     try {
         const resultado = await fetch('http://localhost:5000/api/v1/instalaciones')
 
-            const mostrarInstalacion = await resultado.json()
-            console.log(mostrarInstalacion)
-            const { instalaciones } = mostrarInstalacion
-            res.render('instalaciones', { instalaciones })
-          
+        const mostrarInstalacion = await resultado.json()
+        //console.log(mostrarInstalacion)
+        const { instalaciones } = mostrarInstalacion
+        res.render('instalaciones', { instalaciones })
+
 
     } catch (error) {
- console.log("no se pudo visualizar las instalaciones",error)
+        console.log("no se pudo visualizar las instalaciones", error)
 
 
     }
@@ -43,9 +43,8 @@ const getInstalaciones = async (req, res) => {
 
 // mostrar crear Instalacion
 const getCrear = (req, res) => {
-    res.render('crear')
+    res.render('crear',{respuestaJSON:null})
 }
-
 // crear Instalacion
 
 const postCrearInstalaciones = async (req, res) => {
@@ -59,31 +58,25 @@ const postCrearInstalaciones = async (req, res) => {
                 "Content-Type": "application/json",
             }
         })
-        const instalacion = await respuesta.json()
-        console.log(instalacion)
+        const respuestaJSON=await respuesta.json()
+        console.log("en post", respuestaJSON.ok)
+       console.log(respuestaJSON)
+        if (!respuestaJSON.ok) {
+            
+           res.render('crear',{ respuestaJSON })
+        }else{
+            res.redirect('/admin/crear')
+        }
+        
 
     } catch (error) {
-console.log('no se pudieron crear las instalaciones',error)
+        console.log(error)
+
 
     }
-    res.redirect('/admin/crear')
+    
 
 }
-
-
-
-
-
-
-// Mostrar para eliminar Instalaciones
-const getEliminar = (req, res) => {
-    res.render('eliminar')
-}
-
-
-// Elimiar Instalaciones
-
-
 
 
 
@@ -93,5 +86,5 @@ module.exports = {
     getInstalaciones,
     getCrear,
     postCrearInstalaciones,
-    getEliminar
+
 }
