@@ -1,6 +1,13 @@
+const jwt=require('jsonwebtoken')
 
 //Mostrar Instalaciones
 const getInstalaciones = async (req, res) => {
+const cookie=req.cookies.token
+
+const payload=jwt.verify(cookie,process.env.SECRET_KEY)
+
+console.log("payload",payload)
+console.log("get instalaciones",cookie)
     try {
         const resultado = await fetch('http://localhost:5000/api/v1/instalaciones')
 

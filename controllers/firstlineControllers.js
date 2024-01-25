@@ -51,6 +51,8 @@ const postCrearInstalaciones = async (req, res) => {
 
     try {
         const resultado = req.body
+
+        console.log("en post crear",resultado)
         const respuesta = await fetch('http://localhost:5000/api/v1/crear', {
             method: "POST",
             body: JSON.stringify(resultado),
@@ -68,15 +70,15 @@ const postCrearInstalaciones = async (req, res) => {
             res.redirect('/admin/crear')
         }
         
-
     } catch (error) {
         console.log(error)
-
 
     }
     
 
 }
+
+
 
 
 

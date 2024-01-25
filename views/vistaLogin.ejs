@@ -1,0 +1,40 @@
+<%- include('./templates/header.ejs') %>
+
+    <main class="container py-5">
+        <h1 class="text-center mb-5">Login</h1>
+
+        <section class="mb-5 row">
+            <section class="col-md-6">
+                <h2 class="mb-4 text-center">Login</h2>
+                <form action="/login/loginUsuario" method="POST" name="login" id="login">
+                    <input type="text" id="email" name="email" placeholder="Email" class="form-control mb-2">
+                    <input type="text" id="password" name="password" placeholder="Password" class="form-control mb-2">
+                    <input type="submit" value="Login" class="form-control btn btn-dark">
+                </form>
+            </section>
+
+            <section class="col-md-6">
+                <h2 class="mb-4 text-center">Registro</h2>
+                <form action="/login/registroUsuario" method="post" name="register" id="register">
+                    <input type="text" id="name" name="name" placeholder="Nombre" class="form-control mb-2">
+                    <input type="text" id="email" name="email" placeholder="Email" class="form-control mb-2">
+                    <input type="text" id="password" name="password" placeholder="Password" class="form-control mb-2">
+                    <input type="text" id="password2" name="password2" placeholder="Repetir password"
+                        class="form-control mb-2">
+                       
+                       <% if (error) { %>
+                        <% if (error.error) { %>
+                            <ul>
+                               <li><%= error.msg %></li>
+                            </ul>
+                           <% } %>
+                       <% } %>
+                       
+                    <input type="submit" value="Registrar" class="form-control btn btn-dark">
+                </form>
+            </section>
+
+        </section>
+    </main>
+
+    <%- include('./templates/footer.ejs') %>
