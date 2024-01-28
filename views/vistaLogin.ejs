@@ -22,14 +22,14 @@
                     <input type="text" id="password2" name="password2" placeholder="Repetir password"
                         class="form-control mb-2">
                        
-                       <% if (error) { %>
-                        <% if (error.error) { %>
-                            <ul>
-                               <li><%= error.msg %></li>
-                            </ul>
+                        <% if (error) { %>
+                            
+                                <ul>
+                                   <li><%= error %></li>
+                                </ul>
+                               
                            <% } %>
-                       <% } %>
-                       
+                    
                     <input type="submit" value="Registrar" class="form-control btn btn-dark">
                 </form>
             </section>
